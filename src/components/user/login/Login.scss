@@ -1,0 +1,19 @@
+@import "../../../styles/styles.scss";
+
+.log-in {
+  margin-top: to-rem(30);
+  text-align: center;
+  .MuiFormControl-root {
+    margin-top: to-rem(30);
+    width: 100%;
+  }
+  .MuiButton-root {
+    margin-top: to-rem(30);
+  }
+  @include e('heading') {
+    font-size: to-rem(30);
+  }
+  @include e('separator-text') {
+    margin: to-rem(30) 0 0;
+  }
+}
