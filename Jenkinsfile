@@ -6,7 +6,7 @@ pipeline {
      // ORGANIZATION_NAME
      // YOUR_DOCKERHUB_USERNAME (it doesn't matter if you don't have one)
      
-     SERVICE_NAME = "fleetman-webapp"
+     SERVICE_NAME = "client"
      REPOSITORY_TAG="${YOUR_DOCKERHUB_USERNAME}/${ORGANIZATION_NAME}-${SERVICE_NAME}:${BUILD_ID}"
    }
 
@@ -31,15 +31,16 @@ pipeline {
 
       stage('Push image to docker registry') {
          docker.withRegistry('https://registry.hub.docker.com', 'docker-hub') {
-            app.push("${env.BUILD_NUMBER}")
-            app.push("latest")
+            // app.push("${REPOSITORY_TAG}")
+            // app.push("latest")
+            sh 'docker push ${REPOSITORY_TAG}'
             } 
          echo "Trying to Push Docker Build to DockerHub"
     }
 
       stage('Deploy to Cluster') {
           steps {
-            sh 'envsubst < ${WORKSPACE}/deploy.yaml | kubectl apply -f -'
+            sh 'envsubst < ${WORKSPACE}/client.yaml | kubectl apply -f -'
           }
       }
    }

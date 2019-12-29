@@ -14,9 +14,11 @@ spec:
     spec:
       containers:
       - name: react-client-container
-        # image: anokhadocker/react-client:latest
-        image: react-client:latest
-        imagePullPolicy: Never
+        # image: anokhadocker/tga-group-9-client:${BUILD_ID}
+        image: ${REPOSITORY_TAG}
+
+        # image: react-client:latest
+        # imagePullPolicy: Never
         ports:
         - containerPort: 80
 ---
