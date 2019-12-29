@@ -10,7 +10,7 @@ const AskQuestion = () => {
   return (
     <div className="ask-question">
       <div className="ask-question__heading">
-        <h1>Ask a Question</h1>
+        <h1>Ask a Question update pipeline</h1>
       </div>
       <form className="ask-question-form">
         <TextField
