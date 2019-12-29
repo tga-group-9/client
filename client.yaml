@@ -18,7 +18,7 @@ spec:
         image: ${REPOSITORY_TAG}
 
         # image: react-client:latest
-        # imagePullPolicy: Never
+        imagePullPolicy: Never
         ports:
         - containerPort: 80
 ---

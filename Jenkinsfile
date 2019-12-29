@@ -29,14 +29,14 @@ pipeline {
          }
       }
 
-      stage('Push image to docker registry') {
-         docker.withRegistry('https://registry.hub.docker.com', 'docker-hub') {
-            // app.push("${REPOSITORY_TAG}")
-            // app.push("latest")
-            sh 'docker push ${REPOSITORY_TAG}'
-            } 
-         echo "Trying to Push Docker Build to DockerHub"
-    }
+   //    stage('Push image to docker registry') {
+   //       docker.withRegistry('https://registry.hub.docker.com', 'docker-hub') {
+   //          // app.push("${REPOSITORY_TAG}")
+   //          // app.push("latest")
+   //          sh 'docker push ${REPOSITORY_TAG}'
+   //          } 
+   //       echo "Trying to Push Docker Build to DockerHub"
+   //  }
 
       stage('Deploy to Cluster') {
           steps {
